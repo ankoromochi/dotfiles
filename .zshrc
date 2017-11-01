@@ -1,7 +1,12 @@
 export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>+"
 autoload -U colors
 colors
-PS1="[%{${fg[green]}%}%t%{${fg[default]}%}]%# "
+show_virtual_env() {
+    if [ -n "$VIRTUAL_ENV" ]; then
+        echo "($(basename $VIRTUAL_ENV))"
+    fi
+}
+PS1='[%{${fg[green]}%}%t%{${fg[default]}%}]$(show_virtual_env)%# '
 autoload -U compinit
 compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -48,3 +53,7 @@ eval "$(rbenv init -)"
 # plenv
 export PATH="$HOME/.plenv/bin:$PATH"
 eval "$(plenv init - zsh)"
+
+# direnv
+export EDITOR=vim
+eval "$(direnv hook zsh)"
