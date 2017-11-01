@@ -57,3 +57,11 @@ eval "$(plenv init - zsh)"
 # direnv
 export EDITOR=vim
 eval "$(direnv hook zsh)"
+
+# google cloud SDK
+for f (
+    ~/google-cloud-sdk/completion.zsh.inc
+    ~/google-cloud-sdk/path.zsh.inc
+) {
+    [ -f $f ] && source $f
+}
