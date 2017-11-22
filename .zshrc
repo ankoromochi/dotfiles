@@ -1,12 +1,7 @@
 export WORDCHARS="*?_-.[]~=&;!#$%^(){}<>+"
 autoload -U colors
 colors
-show_virtual_env() {
-    if [ -n "$VIRTUAL_ENV" ]; then
-        echo "($(basename $VIRTUAL_ENV))"
-    fi
-}
-PS1='[%{${fg[green]}%}%t%{${fg[default]}%}]$(show_virtual_env)%# '
+PS1='[%{${fg[green]}%}%t%{${fg[default]}%}]%# '
 autoload -U compinit
 compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
@@ -45,6 +40,7 @@ alias vi='nocorrect vim'
 alias git='nocorrect git'
 alias touch='nocorrect touch'
 alias mkdir='nocorrect mkdir'
+alias sl=ls
 
 # rbenv
 export PATH="$HOME/.rbenv/bin:$PATH"
@@ -53,6 +49,12 @@ eval "$(rbenv init -)"
 # plenv
 export PATH="$HOME/.plenv/bin:$PATH"
 eval "$(plenv init - zsh)"
+
+# pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 # direnv
 export EDITOR=vim
@@ -65,3 +67,7 @@ for f (
 ) {
     [ -f $f ] && source $f
 }
+
+# nodenv
+export PATH="$HOME/.nodenv/bin:$PATH"
+eval "$(nodenv init -)"
