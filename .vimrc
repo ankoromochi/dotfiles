@@ -9,29 +9,27 @@ endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 
-NeoBundle 'rhysd/accelerated-jk'
-NeoBundle 'ctrlpvim/ctrlp.vim'
-NeoBundle 'tpope/vim-surround'
-NeoBundle 'Shougo/neobundle.vim'
-NeoBundle 'fatih/vim-go'
-NeoBundle 'vim-perl/vim-perl'
-NeoBundle 'pangloss/vim-javascript'
-NeoBundle 'mattn/emmet-vim'
+NeoBundle 'airblade/vim-gitgutter'
 NeoBundle 'AtsushiM/search-parent.vim'
-"NeoBundle 'AtsushiM/sass-compile.vim'
+NeoBundle 'Shougo/neobundle.vim'
+NeoBundle 'Shougo/neocomplete.vim'
+NeoBundle 'ctrlpvim/ctrlp.vim'
+NeoBundle 'digitaltoad/vim-jade'
+NeoBundle 'fatih/vim-go'
+NeoBundle 'mattn/emmet-vim'
+NeoBundle 'pangloss/vim-javascript'
+NeoBundle 'rhysd/accelerated-jk'
+NeoBundle 'tpope/vim-surround'
+NeoBundle 'vim-perl/vim-perl'
+NeoBundle 'vim-tags'
 NeoBundle 'Shougo/vimproc', {
   \ 'build': {
   \   'mac': 'make -f make_mac.mak',
   \   'unix': 'make -f make_unix.mak',
   \ },
   \ }
-NeoBundle 'Shougo/neocomplete.vim'
-NeoBundle 'vim-tags'
-NeoBundle 'digitaltoad/vim-jade'
 
 call neobundle#end()
-
-filetype plugin indent on
 
 NeoBundleCheck
 " }}}
@@ -42,16 +40,6 @@ au BufWritePre *.go GoFmt
 au BufNewFile,BufRead *.go set sw=4 noexpandtab ts=4 completeopt=menu,preview
 au FileType go compiler go
 " }}}
-
-" for sass
-""{{{
-"let g:sass_compile_auto      = 1
-"let g:sass_compile_cdloop    = 5
-"let g:sass_compile_cssdir    = ['css', 'stylesheet']
-"let g:sass_compile_file      = ['scss', 'sass']
-"let g:sass_compile_beforecmd = ''
-"let g:sass_compile_aftercmd  = ''
-"}}}
 
 " for emmet
 ""{{{
