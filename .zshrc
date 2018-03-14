@@ -87,9 +87,10 @@ export EDITOR=vim
 eval "$(direnv hook zsh)"
 
 # google cloud SDK
+export GOOGLE_CLOUD_SDK_ROOT=~/google-cloud-sdk/
 for f (
-    ~/google-cloud-sdk/completion.zsh.inc
-    ~/google-cloud-sdk/path.zsh.inc
+    $GOOGLE_CLOUD_SDK_ROOT/completion.zsh.inc
+    $GOOGLE_CLOUD_SDK_ROOT/path.zsh.inc
 ) {
     [ -f $f ] && source $f
 }

@@ -9,6 +9,7 @@ endif
 
 call neobundle#begin(expand('~/.vim/bundle/'))
 
+NeoBundle 'rhysd/accelerated-jk'
 NeoBundle 'ctrlpvim/ctrlp.vim'
 NeoBundle 'tpope/vim-surround'
 NeoBundle 'Shougo/neobundle.vim'
@@ -98,3 +99,9 @@ set fileformats=unix,dos,mac
 syntax enable
 set expandtab
 filetype plugin indent on
+set hlsearch
+set ignorecase
+set smartcase
+let g:accelerated_jk_acceleration_table=[10,5,3]
+nmap j <Plug>(accelerated_jk_gj)
+nmap k <Plug>(accelerated_jk_gk)
