@@ -98,3 +98,7 @@ for f (
 # nodenv
 export PATH="$HOME/.nodenv/bin:$PATH"
 eval "$(nodenv init -)"
+
+# golang
+export GOPATH=$HOME/go
+export PATH=$GOPATH/bin:$PATH
