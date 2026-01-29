@@ -68,37 +68,11 @@ alias touch='nocorrect touch'
 alias mkdir='nocorrect mkdir'
 alias sl=ls
 
-# rbenv
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-
-# plenv
-export PATH="$HOME/.plenv/bin:$PATH"
-eval "$(plenv init - zsh)"
-
-# pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
-# direnv
-export EDITOR=vim
-eval "$(direnv hook zsh)"
-
-# google cloud SDK
-export GOOGLE_CLOUD_SDK_ROOT=~/google-cloud-sdk/
-for f (
-    $GOOGLE_CLOUD_SDK_ROOT/completion.zsh.inc
-    $GOOGLE_CLOUD_SDK_ROOT/path.zsh.inc
-) {
-    [ -f $f ] && source $f
-}
-
-# nodenv
-export PATH="$HOME/.nodenv/bin:$PATH"
-eval "$(nodenv init -)"
-
 # golang
 export GOPATH=$HOME/go
 export PATH=$GOPATH/bin:$PATH
+
+export PATH_LOCALE=$HOME/.config/locale
+export NETSKOPE_CERT_PATH="$HOME/.ssl/certs/netskope.pem"
+export AWS_CA_BUNDLE="$NETSKOPE_CERT_PATH"
+export NODE_EXTRA_CA_CERTS="$NETSKOPE_CERT_PATH"
